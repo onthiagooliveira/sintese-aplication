@@ -1,0 +1,68 @@
+# ==========================================
+# GLOBAIS E AMBIENTE
+# ==========================================
+.env
+.env.[a-zA-Z]*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# BACKEND (Python / FastAPI / Alembic)
+# ==========================================
+# Ambientes Virtuais
+.venv/
+venv/
+ENV/
+env/
+python/
+
+# Byte-compiled / otimizações
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Testes e Cobertura
+.pytest_cache/
+.htmlcov/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+nosetests.xml
+
+# Ferramentas de Linting / Tipagem
+.mypy_cache/
+.ruff_cache/
+.black/
+
+# Banco de Dados Local (SQLite/PostgreSQL temporários se houver)
+*.db
+*.sqlite3
+
+# ==========================================
+# FRONTEND (Node.js / Electron)
+# ==========================================
+# Dependências
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Builds e Distribuição do Electron
+frontend/dist/
+frontend/out/
+frontend/release/
+frontend/build/windows/
+*.exe
+*.msi
+
+# Cache de IDEs / Editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
