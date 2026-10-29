@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Síntese · Entrar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <div class="shell" id="shell">
+
+    <section class="brand" aria-label="Síntese">
+      <div class="logo">SÍNTESE</div>
+      <div class="pitch">
+        <h2>Aprender bem começa com uma leitura atenta e sínteses que ficam.</h2>
+        <p>Organize seus livros, destaque o que importa e revise seus insights no seu ritmo.</p>
+      </div>
+      <div class="proof">
+        <span><strong>2</strong> leitores ativos</span>
+        <span><strong>98%</strong> voltam para a 2ª semana</span>
+      </div>
+    </section>
+
+    <main class="auth">
+      <div>
+        <h1 id="title">Entrar no Síntese</h1>
+        <p class="lead" id="lead">Use sua conta Google ou e-mail para continuar.</p>
+      </div>
+
+      <div class="alert" id="alert" role="alert"></div>
+
+      <button type="button" class="btn btn-google" id="googleBtn">
+        <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#EA4335"
+            d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.5 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.8 6C12.3 13.5 17.7 9.5 24 9.5z" />
+          <path fill="#4285F4"
+            d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7-10.1 7-17.5z" />
+          <path fill="#FBBC05"
+            d="M10.4 28.8c-.5-1.4-.8-3-.8-4.8s.3-3.3.8-4.8l-7.8-6C.9 16.5 0 20.1 0 24s.9 7.5 2.6 10.8l7.8-6z" />
+          <path fill="#34A853"
+            d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.7-4.2-13.6-9.9l-7.8 6C6.5 42.6 14.6 48 24 48z" />
+        </svg>
+        Continuar com o Google
+      </button>
+
+      <div class="divider">ou</div>
+
+      <form id="authForm" novalidate>
+        <label class="field only-signup">
+          Nome
+          <input type="text" name="name" autocomplete="name" placeholder="Como você quer ser chamado" maxlength="120">
+        </label>
+
+        <label class="field">
+          E-mail
+          <input type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+        </label>
+
+        <label class="field">
+          Senha
+          <span class="pwd">
+            <input type="password" name="password" id="password" autocomplete="current-password" placeholder="Sua senha" required>
+            <button type="button" id="togglePwd" aria-label="Mostrar senha">Mostrar</button>
+          </span>
+          <span class="hint only-signup" id="pwdHint">Mínimo de 10 caracteres.</span>
+        </label>
+
+        <div class="row only-login">
+          <label class="remember"><input type="checkbox" name="remember"> Manter conectado</label>
+          <a href="#" id="forgot">Esqueci a senha</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn">Entrar com e-mail</button>
+      </form>
+
+      <div class="switch">
+        <span class="only-login">Não tem uma conta? <a href="#" id="toSignup">Criar conta grátis</a></span>
+        <span class="only-signup">Já tem uma conta? <a href="#" id="toLogin">Entrar</a></span>
+      </div>
+
+      <div class="legal">Ao continuar, você concorda com os Termos de Uso e a Política de Privacidade.</div>
+    </main>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

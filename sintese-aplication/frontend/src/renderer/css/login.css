@@ -1,0 +1,342 @@
+/*
+ * RENO · Tela de entrada e cadastro
+ * Baseada no protótipo "5 · Entrar (login)".
+ */
+
+/* ==========================================================================
+   1. Tokens
+   ========================================================================== */
+:root {
+  --brand-600: #2F6F5E;   /* primário: botão, link de destaque, foco */
+  --brand-100: #E8F1EC;   /* painel de marca */
+  --mint-500:  #5FAE8E;   /* verde de apoio */
+  --ink-900:   #1F2A2E;   /* texto principal */
+  --ink-800:   #24393D;   /* título serifado do painel */
+  --ink-700:   #4E6166;   /* texto do painel de marca */
+  --ink-600:   #5B6B70;   /* texto secundário */
+  --ink-400:   #9AA6AA;   /* texto discreto */
+  --line-300:  #D9D6CC;   /* borda de campos e botão Google */
+  --line-200:  #ECEAE3;   /* divisores */
+  --paper:     #FFFFFF;   /* painel do formulário */
+  --danger:    #A23B2C;   /* erro */
+  --danger-bg: #FBEDEA;   /* fundo de erro */
+  --focus:     #2F6F5E;
+
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Literata", Georgia, serif;
+}
+
+/* ==========================================================================
+   2. Base
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  font-family: var(--font-ui);
+  color: var(--ink-900);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--brand-600); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ==========================================================================
+   3. Layout
+   ========================================================================== */
+.shell { display: flex; min-height: 100vh; }
+
+/* Painel de marca (lado esquerdo) */
+.brand {
+  flex: 1;
+  padding: 56px 64px;
+  background: var(--brand-100);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Painel do formulário (lado direito) */
+.auth {
+  width: 560px;
+  flex-shrink: 0;
+  padding: 56px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  background: var(--paper);
+}
+
+/* ==========================================================================
+   4. Painel de marca
+   ========================================================================== */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--brand-600);
+}
+
+.pitch {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 520px;
+}
+
+.pitch h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.35;
+  color: var(--ink-800);
+}
+
+.pitch p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-700);
+}
+
+.proof {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  color: var(--ink-700);
+  flex-wrap: wrap;
+}
+
+.proof strong { color: var(--ink-900); }
+
+/* ==========================================================================
+   5. Cabeçalho do formulário
+   ========================================================================== */
+.auth h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.lead {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: var(--ink-600);
+}
+
+/* ==========================================================================
+   6. Botões
+   ========================================================================== */
+.btn {
+  height: 50px;
+  width: 100%;
+  border-radius: 12px;
+  font: 600 15px var(--font-ui);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn:disabled { opacity: .6; cursor: wait; }
+
+.btn-google {
+  border: 1px solid var(--line-300);
+  background: var(--paper);
+  color: var(--ink-900);
+}
+
+.btn-google:hover { background: #FAFAF7; }
+
+.btn-primary {
+  border: 0;
+  background: var(--brand-600);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover { filter: brightness(1.06); }
+
+/* Divisor "ou" */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--ink-400);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-200);
+}
+
+/* ==========================================================================
+   7. Formulário
+   ========================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line-300);
+  font: 400 15px var(--font-ui);
+  color: var(--ink-900);
+  background: var(--paper);
+}
+
+.field input::placeholder { color: var(--ink-400); }
+
+.field input:focus {
+  border-color: var(--brand-600);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 111, 94, .15);
+}
+
+.hint {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-600);
+}
+
+/* Campo de senha com botão Mostrar/Ocultar */
+.pwd {
+  position: relative;
+  display: block;
+}
+
+.pwd input { padding-right: 64px; }
+
+.pwd button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: 600 13px var(--font-ui);
+  color: var(--brand-600);
+  cursor: pointer;
+}
+
+/* Linha de opções (manter conectado / esqueci a senha) */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-600);
+}
+
+.remember input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--brand-600);
+}
+
+/* ==========================================================================
+   8. Mensagens e rodapé do formulário
+   ========================================================================== */
+.alert {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.alert.show { display: block; }
+.alert.ok { background: var(--brand-100); color: var(--brand-600); }
+
+.switch {
+  font-size: 14px;
+  color: var(--ink-600);
+  text-align: center;
+}
+
+.switch a { font-weight: 600; }
+
+.legal {
+  font-size: 12px;
+  color: var(--ink-400);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   9. Alternância entre entrar e criar conta
+   ========================================================================== */
+.only-signup { display: none; }
+.is-signup .only-signup { display: flex; }
+
+.only-login { display: block; }
+.is-signup .only-login { display: none; }
+
+/* ==========================================================================
+   10. Responsivo
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .brand { padding: 40px; gap: 20px; }
+  .pitch h2 { font-size: 28px; }
+  .auth { width: 480px; padding: 48px; }
+}
+
+/* Mobile e janelas estreitas do app desktop */
+@media (max-width: 767px) {
+  .shell { flex-direction: column; }
+
+  .brand {
+    flex: none;
+    padding: 28px 24px;
+    gap: 16px;
+  }
+
+  .pitch h2 { font-size: 22px; }
+  .pitch p,
+  .proof { display: none; }
+
+  .auth {
+    width: 100%;
+    padding: 32px 24px 48px;
+    justify-content: flex-start;
+  }
+
+  .auth h1 { font-size: 24px; }
+}
