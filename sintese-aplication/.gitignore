@@ -2,8 +2,8 @@
 # GLOBAIS E AMBIENTE
 # ==========================================
 .env
-.env.[a-zA-Z]*
-!.env.example
+.env
+!.env
 *.log
 .DS_Store
 Thumbs.db
